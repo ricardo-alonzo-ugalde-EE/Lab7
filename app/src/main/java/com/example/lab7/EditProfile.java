@@ -20,6 +20,8 @@ import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 
 import android.widget.ImageView;
@@ -112,6 +114,10 @@ public class EditProfile extends AppCompatActivity implements PopupMenu.OnMenuIt
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+        Window window = EditProfile.this.getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(ContextCompat.getColor(EditProfile.this, R.color.colorAccent));
         phonenumber=findViewById(R.id.phoneNumberText);
         displayname=findViewById(R.id.displayNameText);
         profileImage=findViewById(R.id.profileImage);
@@ -216,7 +222,8 @@ public class EditProfile extends AppCompatActivity implements PopupMenu.OnMenuIt
         popup.show();
     }
 
-    public void Save(View view) {
+    public void Save(View view)
+    {
         if(displayname.getText().toString().equals("") || phonenumber.getText().toString().equals(""))
         {
             Toast.makeText(this, "Please enter your display name and phone number", Toast.LENGTH_SHORT).show();

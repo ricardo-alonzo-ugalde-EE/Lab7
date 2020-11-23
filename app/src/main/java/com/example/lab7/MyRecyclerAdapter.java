@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Gravity;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -293,12 +295,18 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                         }
                         else
                         {
-                            Intent intent = new Intent(context, EditPost.class);
-                            Uri imageUri = context.getContentResolver().insert( MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new ContentValues());
-                            intent.putExtra("uri", imageUri.toString());
-                            intent.putExtra("postKey", u.postKey);
-                            intent.putExtra("description", u.description);
-                            context.startActivity(intent);
+
+                            Intent intent = new Intent(holder.imageView.getContext(),EditPost.class);
+                            intent.putExtra("postKey",u.postKey);
+                            intent.putExtra("Description",u.description);
+                            holder.imageView.getContext().startActivity(intent);
+
+//                            Intent intent = new Intent(context, EditPost.class);
+//                            Uri imageUri = context.getContentResolver().insert( MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new ContentValues());
+//                            intent.putExtra("uri", imageUri.toString());
+//                            intent.putExtra("postKey", u.postKey);
+//                            intent.putExtra("description", u.description);
+//                            context.startActivity(intent);
 
                             return false;
                         }

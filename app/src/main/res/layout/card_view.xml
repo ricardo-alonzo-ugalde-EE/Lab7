@@ -23,7 +23,6 @@
         <ImageView
             android:id="@+id/postImg"
             android:layout_width="match_parent"
-            android:onClick=""
             android:layout_height="wrap_content">
 
         </ImageView>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_margin="10dp"
     android:padding="15dp"
-    tools:context=".PhotoPreview">
+    tools:context=".EditPost">
     <ImageView
         android:id="@+id/previewImage"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,11 +19,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
-        android:text="SHARE"
+        android:id="@+id/update"
+        android:text="Update"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/description"
         android:background="@drawable/signup_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="Publish"/>
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
